@@ -66,7 +66,7 @@ public class DepartmentDAO {
 	 * @throws SQLException 情報の取得に失敗
 	 */
 	public List<Department> selectAll() throws SQLException {
-		List<Department> deptList = null;
+		List<Department> deptList = new ArrayList<Department>();
 		try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_SQL);) {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
