@@ -37,7 +37,7 @@ public class EmployeeDAO {
 	/**
 	 * 全件検索SQL
 	 */
-	private static final String SELECT_ALL_SQL = "SELECT emp_id, empName, d.dept_id, dept_name, phone_number, email_address FROM employee e INNER JOIN department d ON e.dept_id = d.dept_id ORDER BY emp_id";
+	private static final String SELECT_ALL_SQL = "SELECT emp_id, emp_name, d.dept_id, dept_name, phone_number, email_address FROM employee e INNER JOIN department d ON e.dept_id = d.dept_id ORDER BY emp_id";
 	/**
 	 * １件検索（条件：社員ID）SQL
 	 */
@@ -131,7 +131,7 @@ public class EmployeeDAO {
 	public Employee selectByMailAddress(String mailAddress) throws SQLException  {
 		Employee employee = null;
 		try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ONE_BY_EMAIL_ADDRESS_SQL);) {
-			preparedStatement.setString(1, "xxx.co.jp");
+			preparedStatement.setString(1, mailAddress);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
 				employee = new Employee();
