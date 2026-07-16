@@ -40,9 +40,10 @@ public class EmployeeRegistInputServlet extends HttpServlet {
 		if (errMsgs != null && !errMsgs.isEmpty()) {
 			session.removeAttribute("EmpRegistInputErrMsgs");
 			req.setAttribute("errMsgs", errMsgs);
+		
 		}
-		Employee employee = (Employee) session.getAttribute("newEmpInput");
-		if (employee != null) {
+		Employee employee = (Employee)session.getAttribute("newEmpInput");
+		if(employee!=null) {
 			session.removeAttribute("newEmpInput");
 		}
 
@@ -52,6 +53,7 @@ public class EmployeeRegistInputServlet extends HttpServlet {
 			resp.sendRedirect("error");
 			return;
 		}
+	
 
 		req.setAttribute("newEmpInputViewData", employee);
 		req.getRequestDispatcher("WEB-INF/jsp/employee/insert/employeeinsertinput.jsp").forward(req, resp);
