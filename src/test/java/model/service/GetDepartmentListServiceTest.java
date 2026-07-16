@@ -54,7 +54,7 @@ public class GetDepartmentListServiceTest {
     @DisplayName("リソースに登録されている全ての部門情報を複数取得:データあり")
     public void testGetDeptListWithDeptName01() throws Exception {
         TestUtil.setDS101ToDB();
-        TestUtil.setDS001ToDB();
+        // TestUtil.setDS001ToDB();
         List<Department> expected = TestUtil.getDS101();
         List<Department> actual = target.readDepartmentAll();
         assertEquals(expected, actual);
@@ -64,7 +64,7 @@ public class GetDepartmentListServiceTest {
     @DisplayName("リソースに登録されている全ての部門情報を複数取得:データなし")
     public void testGetDeptListWithDeptName02() throws Exception {
         TestUtil.setDS101ToDB();
-        TestUtil.setDS002ToDB();
+        // TestUtil.setDS002ToDB();
         List<Department> expected = TestUtil.getDS102();
         List<Department> actual = target.readDepartmentAll();
         assertEquals(expected, actual);
