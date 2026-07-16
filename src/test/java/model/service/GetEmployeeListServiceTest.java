@@ -34,9 +34,9 @@ public class GetEmployeeListServiceTest {
 	 */
 	@AfterAll
 	public static void tearDownAfterClass() throws Exception {
-		// TestUtil.initDB();
-		// TestUtil.setDS101ToDB();
-		// TestUtil.setDS001ToDB();
+		TestUtil.initDB();
+		TestUtil.setDS101ToDB();
+		TestUtil.setDS001ToDB();
 	}
 
 	/**
