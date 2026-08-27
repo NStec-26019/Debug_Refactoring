@@ -41,8 +41,8 @@ public class EmployeeDeleteCheckServlet extends HttpServlet {
 		session.removeAttribute("delEmpInput");
 
 		@SuppressWarnings("unchecked")
-		List<String> errMsgs = (List<String>)session.getAttribute("EmpDelInputErrMsgs");
-		if(errMsgs!=null&&!errMsgs.isEmpty()) {
+		List<String> errMsgs = (List<String>) session.getAttribute("EmpDelInputErrMsgs");
+		if (errMsgs != null && !errMsgs.isEmpty()) {
 			session.removeAttribute("EmpDelInputErrMsgs");
 			req.setAttribute("errMsgs", errMsgs);
 		}
@@ -61,7 +61,7 @@ public class EmployeeDeleteCheckServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession(true);
 		Object isDeleted = session.getAttribute("empDeletedFlg");
-		if (isDeleted == null||(boolean)isDeleted) {
+		if (isDeleted == null || (boolean) isDeleted) {
 			session.setAttribute("illegalOperationMsg", "不正な操作です");
 			resp.sendRedirect("menu");
 			return;
@@ -83,6 +83,7 @@ public class EmployeeDeleteCheckServlet extends HttpServlet {
 
 	/**
 	 * 入力パラメータを取得し削除対象の社員情報として返却
+	 * 
 	 * @param req HTTPリクエスト
 	 * @return 入力パラメータの社員情報
 	 */
